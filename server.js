@@ -13,6 +13,11 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 dotEnv.config();
 
+// Redirect from / to /register
+app.get('/', (req, res) => {
+  res.redirect('/register');
+});
+
 // Middleware
 app.use(express.static('public'));
 app.use(bodyParser.json());
